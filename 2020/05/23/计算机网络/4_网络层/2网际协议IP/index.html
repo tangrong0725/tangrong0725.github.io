@@ -9,7 +9,7 @@
 	
 	<title>
 	
-		计算机网络/4 网络层/2 网际协议IP | 
+		计算机网络/4_网络层/2网际协议IP | 
 	 
 	Hexo
 	</title>
@@ -92,15 +92,6 @@
 			
 							<ul>
 								<li class="file">
-									<a href="/2020/05/23/d/">
-										d
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
-								<li class="file">
 									<a href="/2020/05/23/hello-world/">
 										hello-world
 									</a>
@@ -119,13 +110,13 @@
 								<li class="directory">
 									<a href="#" class="directory">
 										<i class="fa fa-plus-square-o"></i>
-										4 网络层
+										4_网络层
 									</a>
 									
 							<ul>
 								<li class="file">
-									<a href="/2020/05/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/4%20%E7%BD%91%E7%BB%9C%E5%B1%82/1/">
-										1
+									<a href="/2020/05/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/4_%E7%BD%91%E7%BB%9C%E5%B1%82/1_%E7%BD%91%E7%BB%9C%E5%B1%82%E6%8F%90%E4%BE%9B%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%9C%8D%E5%8A%A1/">
+										1_网络层提供的两种服务
 									</a>
 								</li>
 								<div class="article-toc" style="display: none;"></div>
@@ -133,8 +124,8 @@
 			
 							<ul>
 								<li class="file active">
-									<a href="/2020/05/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/4%20%E7%BD%91%E7%BB%9C%E5%B1%82/2%20%E7%BD%91%E9%99%85%E5%8D%8F%E8%AE%AEIP/">
-										2 网际协议IP
+									<a href="/2020/05/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/4_%E7%BD%91%E7%BB%9C%E5%B1%82/2%E7%BD%91%E9%99%85%E5%8D%8F%E8%AE%AEIP/">
+										2网际协议IP
 									</a>
 								</li>
 								<div class="article-toc" style="display: none;"></div>
@@ -156,7 +147,7 @@
 	<div id="content">
 		<h1 id="article-title">
 
-	2 网际协议IP
+	2网际协议IP
 </h1>
 <div class="article-meta">
 	
@@ -198,7 +189,7 @@
 <li><p>从IP地址的结构来看，IP地址并不仅仅指明一个主机，而是还指明了主机所连接的网络。</p>
 </li>
 </ul>
-<p>![IP地址的指派范围](2 网际协议IP/2.png)</p>
+<p><img src="/2020/05/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/4_%E7%BD%91%E7%BB%9C%E5%B1%82/2%E7%BD%91%E9%99%85%E5%8D%8F%E8%AE%AEIP/2.png" alt="IP地址的指派范围"></p>
 <ul>
 <li>IP地址具有以下一些重要特点：<ul>
 <li>每一个IP地址都由网络号和主机号两部分组成。从这个意义上说，IP地址是一种分等级的地址结构。分两个等级的好处是：第一，IP地址管理结构在分配IP地址时只分配网络号(第一级)，而剩下的主机号(第二级)则由得到该网络号的单位自行分配。这样就方便了IP地址的管理。第二，路由器仅根据目的主机所连接的网络号来转发分组(而不考虑目的主机号)，这样就可以使路由表中的项目数大幅度减少，从而减少了路由表所占的存储空间及路由表时间。</li>
@@ -212,7 +203,7 @@
 <h3 id="4-2-3-IP地址与硬件地址"><a href="#4-2-3-IP地址与硬件地址" class="headerlink" title="4.2.3 IP地址与硬件地址"></a>4.2.3 IP地址与硬件地址</h3><ul>
 <li>下图说明了这两种地址的区别。从层次的角度看，物理地址是数据链路层和物理层使用的地址，而IP地址是网络层和以上各层使用的地址，是一种逻辑地址。</li>
 </ul>
-<p>![IP地址与硬件地址的区别](2 网际协议IP/3.png)</p>
+<p><img src="/2020/05/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/4_%E7%BD%91%E7%BB%9C%E5%B1%82/2%E7%BD%91%E9%99%85%E5%8D%8F%E8%AE%AEIP/3.png" alt="IP地址与硬件地址的区别"></p>
 <ul>
 <li>IP地址放在IP数据报的首部，而硬件地址则放在MAC帧的首部。在网络层和网络层以上使用的是IP地址，而数据链路层及以下使用的是硬件地址。</li>
 <li>IP数据报放入数据链路层的MAC帧中以后，整个的IP数据报就成为MAC帧的数据，因而在数据链路层看不见数据报的IP地址。</li>
@@ -235,7 +226,7 @@
 <h3 id="4-2-4-IP数据报的格式"><a href="#4-2-4-IP数据报的格式" class="headerlink" title="4.2.4 IP数据报的格式"></a>4.2.4 IP数据报的格式</h3><ul>
 <li>一个IP数据报由首部和数据两部分组成。首部的前一部分是固定长度，共20字节，是所有IP数据报必须具有的。在首部的固定部分的后面是一些可选字段，其长度可变的。</li>
 </ul>
-<p>![IP数据报的格式](2 网际协议IP/4.png)</p>
+<p><img src="/2020/05/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/4_%E7%BD%91%E7%BB%9C%E5%B1%82/2%E7%BD%91%E9%99%85%E5%8D%8F%E8%AE%AEIP/4.png" alt="IP数据报的格式"></p>
 <ul>
 <li><p>IP数据报首部固定部分中的各字段</p>
 <ul>
@@ -322,8 +313,8 @@
         </div>
         <div class="item right">
             
-              <a href="/2020/05/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/4%20%E7%BD%91%E7%BB%9C%E5%B1%82/1/">
-                1
+              <a href="/2020/05/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/4_%E7%BD%91%E7%BB%9C%E5%B1%82/1_%E7%BD%91%E7%BB%9C%E5%B1%82%E6%8F%90%E4%BE%9B%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%9C%8D%E5%8A%A1/">
+                1_网络层提供的两种服务
                 <i class="fa fa-angle-right" aria-hidden="true"></i>
               </a>
             
