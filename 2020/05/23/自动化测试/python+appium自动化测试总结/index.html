@@ -9,7 +9,7 @@
 	
 	<title>
 	
-		网络层提供的两种服务 | 
+		自动化测试/python+appium自动化测试总结 | 
 	 
 	Hexo
 	</title>
@@ -107,7 +107,7 @@
 									</a>
 									
 							<ul>
-								<li class="file">
+								<li class="file active">
 									<a href="/2020/05/23/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/python+appium%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E6%80%BB%E7%BB%93/">
 										python+appium自动化测试总结
 									</a>
@@ -134,7 +134,7 @@
 									</a>
 									
 							<ul>
-								<li class="file active">
+								<li class="file">
 									<a href="/2020/05/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/4_%E7%BD%91%E7%BB%9C%E5%B1%82/4.1%E7%BD%91%E7%BB%9C%E5%B1%82%E6%8F%90%E4%BE%9B%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%9C%8D%E5%8A%A1/">
 										4.1网络层提供的两种服务
 									</a>
@@ -234,12 +234,12 @@
 	<div id="content">
 		<h1 id="article-title">
 
-	4.1网络层提供的两种服务
+	python+appium自动化测试总结
 </h1>
 <div class="article-meta">
 	
 	<span>Gakki0725</span>
-	<span>2020-05-23 11:37:50</span>
+	<span>2020-05-23 10:27:16</span>
     
 		<div id="article-categories">
             
@@ -248,30 +248,77 @@
 </div>
 
 <div id="article-content">
-	<ul>
-<li>因特网采用的设计思路是这样的：网络层向上提供简单灵活的、无连接的、尽最大努力交付的数据报服务。</li>
-<li>网络层不提供服务质量的承诺。</li>
+	<h2 id="采用POM模式"><a href="#采用POM模式" class="headerlink" title="采用POM模式"></a>采用POM模式</h2><h3 id="POM的优势"><a href="#POM的优势" class="headerlink" title="POM的优势?"></a>POM的优势?</h3><ul>
+<li><p>简单来说就是：</p>
+<ol>
+<li>采用数据与用例分离模式。数据、代码易维护。要是哪个界面的UI改了，那么你就可以只改那个界面的baseView.py就可以了，不需要整个代码模块都改。</li>
+<li>可复用的代码合在一起，使代码更整洁。</li>
+<li>每个UI对应一个BaseView.py。</li>
+</ol>
+</li>
+<li><p>详细的说就分为几点：    </p>
+<ol>
+<li>POM提供了一种在UI层操作、业务流程与验证分离的模式，这使得测试代码变得更加清晰和高可读性</li>
+<li>对象库与用例分离，使得我们更好的复用对象，甚至能与不同的工具进行深度结合应用</li>
+<li>可复用的页面方法代码会变得更加优化</li>
+<li>更加有效的命名方式使得我们更加清晰的知道方法所操作的UI元素。例如我们要回到首页，方法名命名为: goHomePage(),通过方法名即可清晰的知道具体的功能实现。 </li>
+</ol>
+</li>
 </ul>
-<p><img src="/2020/05/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/4_%E7%BD%91%E7%BB%9C%E5%B1%82/4.1%E7%BD%91%E7%BB%9C%E5%B1%82%E6%8F%90%E4%BE%9B%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%9C%8D%E5%8A%A1/1.png" alt="虚电路服务与数据报服务的对比"></p>
+<h3 id="什么是POM（Page-Object-Model）？"><a href="#什么是POM（Page-Object-Model）？" class="headerlink" title="什么是POM（Page Object Model）？"></a>什么是POM（Page Object Model）？</h3><ul>
+<li>页面对象模型(POM)是一种设计模式，用来管理维护一组web元素集的对象库</li>
+<li>在POM下，应用程序的每一个页面都有一个对应的page class</li>
+<li>每一个page class维护着该web页的元素集和操作这些元素的方法</li>
+<li>page class中的方法命名最好根据其对应的业务场景进行，例如通常登录后我们需要等待几秒中，我们可以这样命名该方法: waitingForLoginSuccess().</li>
+</ul>
+<h2 id="项目思路"><a href="#项目思路" class="headerlink" title="项目思路"></a>项目思路</h2><h3 id="项目设计"><a href="#项目设计" class="headerlink" title="项目设计"></a>项目设计</h3><ul>
+<li>一个模块（被测项目的页面）对应一个py文件及一个测试类（测试文件）</li>
+<li>每一个测试页面（系统的页面）中存储页面元素及此页面中涉及到的功能</li>
+<li>每一个用例组合在一个测试类里面生成一个py文件</li>
+</ul>
+<h3 id="项目目标"><a href="#项目目标" class="headerlink" title="项目目标"></a>项目目标</h3><ul>
+<li>生成测试用例执行结果报告</li>
+<li>生产测试用例执行日志</li>
+<li>用例执行失败或执行完成后自动发生邮件报告</li>
+<li>用例执行失败或者成功时截取图片</li>
+<li>数据驱动（读取测试数据，减少脚本维护成本）</li>
+</ul>
+<h2 id="项目目录"><a href="#项目目录" class="headerlink" title="项目目录"></a>项目目录</h2><pre><code>app # 存放APP包，如果没有安装，则启动的时候调用该模块安装APP
+baseView 
 
+businessView # 每个UI页面对应一个PageView.py
+    loginView.py # 登录界面
+common
+    common_fun.py # 存放公共方法，比如判断是否开启定位等。
+    desired_caps.py # 读取APP的配置信息
+    myunit.py # 启动APP+关闭APP
+config
+    caps.yaml # 存放APP配置信息
+    log.conf # 日志配置信息
+data
+    test_data.csv # 存放测试数据
+    elementDate.csv # 存放元素信息
+logs # 存放用例执行过程中的log信息
+reports # 测试报告
+screenshots # 截图
+    Fail # 存放用例执行失败时截图
+    Pass # 存放用例执行成功时截图
+test_case # 测试用例，以test_x开头
+    test_login.py # 登录测试
+test_run # 执行测试用例。要执行哪些测试用例直接在在里面添加就行</code></pre>
 </div>
 
 
     <div class="post-guide">
         <div class="item left">
             
-              <a href="/2020/05/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/4_%E7%BD%91%E7%BB%9C%E5%B1%82/4.2%E7%BD%91%E9%99%85%E5%8D%8F%E8%AE%AEIP/">
+              <a href="/2020/05/23/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/">
                   <i class="fa fa-angle-left" aria-hidden="true"></i>
-                  4.2网际协议IP
+                  测试基础
               </a>
             
         </div>
         <div class="item right">
-            
-              <a href="/2020/05/23/hello-world/">
-                
-                <i class="fa fa-angle-right" aria-hidden="true"></i>
-              </a>
             
         </div>
     </div>
