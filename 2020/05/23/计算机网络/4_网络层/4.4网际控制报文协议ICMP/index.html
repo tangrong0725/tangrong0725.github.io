@@ -258,16 +258,14 @@
 
 <div id="article-content">
 	<h3 id="4-4-网际控制报文协议ICMP"><a href="#4-4-网际控制报文协议ICMP" class="headerlink" title="4.4 网际控制报文协议ICMP"></a>4.4 网际控制报文协议ICMP</h3><ul>
-<li>ICMP(IP层协议)允许主机或路由器报告差错情况和提供有关异常情况的报告。</li>
-<li>《图4-27 P160》<ul>
+<li>ICMP(IP层协议)允许主机或路由器报告差错情况和提供有关异常情况的报告。<br><img src="/2020/05/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/4_%E7%BD%91%E7%BB%9C%E5%B1%82/4.4%E7%BD%91%E9%99%85%E6%8E%A7%E5%88%B6%E6%8A%A5%E6%96%87%E5%8D%8F%E8%AE%AEICMP/1.png" alt="ICMP报文的格式"><ul>
 <li>如图所示，ICMP报文作为IP层数据报的数据吗，加上数据报的首部，组成IP数据报发送出去。</li>
 <li>ICMP报文的前4个字节是统一的格式，共有三个字段：即类型、代码和检验和。接着的4个字节的内容与ICMP的类型有关。最后面是数据字段，其长度取决于ICMP的类型。</li>
 </ul>
 </li>
 </ul>
 <h4 id="4-4-1-ICMP报文的种类"><a href="#4-4-1-ICMP报文的种类" class="headerlink" title="4.4.1 ICMP报文的种类"></a>4.4.1 ICMP报文的种类</h4><ul>
-<li>ICMP报文的种类有两种，即ICMP差错报告报文和ICMP询问报文。</li>
-<li>《图4-8 P160》</li>
+<li>ICMP报文的种类有两种，即ICMP差错报告报文和ICMP询问报文。<br><img src="/2020/05/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/4_%E7%BD%91%E7%BB%9C%E5%B1%82/4.4%E7%BD%91%E9%99%85%E6%8E%A7%E5%88%B6%E6%8A%A5%E6%96%87%E5%8D%8F%E8%AE%AEICMP/2.png" alt="几种常用的ICMP报文类型"></li>
 <li>ICMP差错报告报文共有五种，即：<ol>
 <li>终点不可达<ul>
 <li>当路由器或主机不能交付数据报时就向源点发送终点不可达报文。</li>
