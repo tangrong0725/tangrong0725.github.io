@@ -8,8 +8,6 @@
 	<!-- title -->
 	
 	<title>
-	
-		计算机网络/4_网络层/4.3划分子网和构造超网 | 
 	 
 	Hexo
 	</title>
@@ -143,7 +141,7 @@
 							</ul>
 			
 							<ul>
-								<li class="file active">
+								<li class="file">
 									<a href="/2020/05/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/4_%E7%BD%91%E7%BB%9C%E5%B1%82/4.3%E5%88%92%E5%88%86%E5%AD%90%E7%BD%91%E5%92%8C%E6%9E%84%E9%80%A0%E8%B6%85%E7%BD%91/">
 										4.3划分子网和构造超网
 									</a>
@@ -250,117 +248,42 @@
 
 	<!-- 引入正文 -->
 	<div id="content">
-		<h1 id="article-title">
-
-	4.3划分子网和构造超网
-</h1>
-<div class="article-meta">
+		<div id="index">
 	
-	<span>Gakki0725</span>
-	<span>2020-05-23 14:06:34</span>
-    
-		<div id="article-categories">
-            
-		</div>
-    
+		<div class="index-li">
+			<a href="/2020/05/23/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/python+appium%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E6%80%BB%E7%BB%93/">
+				<h2 class="index-title">
+					python+appium自动化测试总结
+				</h2>
+				<div class="index-brief">
+					采用POM模式POM的优势?
+简单来说就是：
+
+采用数据与用例分离模式。数据、代码易维护。要是哪个界面的UI改了，那么你就可以只改那个界面的baseView.py就可以了，不需要整个代码模块都改。
+可复用的代码合在一起，使代码更整洁。
+每个UI对应一个BaseView.py。
+
+
+详细的说就分为几点
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2020-05-23</span>
+                    
+                            
+                    
+                </div>
+		</div>	
+	
+	
+	<div id="index-paginator">
+		
+			<a class="extend prev" rel="prev" href="/archives/">&lt;</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span>
+		
+	</div>
 </div>
 
-<div id="article-content">
-	<h3 id="4-3-1-划分子网和构造超网"><a href="#4-3-1-划分子网和构造超网" class="headerlink" title="4.3.1 划分子网和构造超网"></a>4.3.1 划分子网和构造超网</h3><ul>
-<li><p>划分子网的基本思路：    </p>
-<ol>
-<li><p>一个拥有许多物理网络的单位，可将所属的物理网络划分为若干个子网。划分子网纯属一个单位内部的事情。本单位以外的网络看不见这个网络是由多少子网组成，因为这个单位对外仍然表现为一个网络。</p>
-</li>
-<li><p>划分子网的方法是从网络的主机号借用若干位作为子网号subnet—id，当然主机号也就相应减少了同样的位数。于是两级IP地址在本单位内部就变成三级IP地址：网络号、子网号和主机号。</p>
-<pre><code> 也可以用以下记法表示：
-     IP地址 ::= {&lt;网络号&gt;，&lt;子网号&gt;，&lt;主机号&gt;}</code></pre></li>
-<li><p>凡是从其他网络发送给本单位某个主机的IP数据报，仍然是根据IP数据报目的网络号找到连接本单位网络上的路由器。在此路由器在收到IP数据报后，再按目的网络号和子网号找到目的子网，把IP数据报交付目的主机。</p>
-</li>
-<li><p>总之，当没有划分子网时，IP地址是两级结构。划分子网后IP地址变成了三级结构。划分子网只是把IP地址的主机号这部分进行再划分，而不改变IP地址原来的网络号。</p>
-</li>
-</ol>
-</li>
-<li><p>子网掩码：</p>
-<ul>
-<li>使用子网掩码的好处就是：不管网络有没有划分子网，只要把子网掩码和IP地址进行逐位的“与”运行(AND)，就立即得出网络地址来。这样在路由器处理到来的分组时就采用同样的算法。</li>
-</ul>
-</li>
-<li><p>所有网络都必须使用子网掩码，同时在路由器的路由表中也必须有子网掩码这一栏。如果一个网络不划分子网，那么该网络的子网掩码就使用默认子网掩码。默认子网掩码中1的位置和IP地址中的网络号字段net-id正好相对应。因此，若用默认子网掩码和某个不划分子网的IP地址逐位相“与”(AND)，就应当能够得到该IP地址的网络地址来。</p>
-</li>
-<li><p>子网掩码是一个网络或一个子网的重要属性。</p>
-</li>
-<li><p>若使用较少位数的子网号，则每一个子网上可连接的的主机数就较多。反之，若使用较多位数的子网号，则子网的数目较多但每个子网上可连接的主机数就较少。</p>
-</li>
-<li><p>划分子网增加了灵活性，但却减少了能够连接在网络上的主机总数。</p>
-</li>
-</ul>
-<h3 id="4-3-2-使用子网时分组的转发"><a href="#4-3-2-使用子网时分组的转发" class="headerlink" title="4.3.2 使用子网时分组的转发"></a>4.3.2 使用子网时分组的转发</h3><ul>
-<li>使用子网划分后，路由表必须包含以下三项内容：目的网络地址、子网掩码和下一跳地址。</li>
-</ul>
-<h3 id="4-3-3-无分类编制CIDR（构成超网）"><a href="#4-3-3-无分类编制CIDR（构成超网）" class="headerlink" title="4.3.3 无分类编制CIDR（构成超网）"></a>4.3.3 无分类编制CIDR（构成超网）</h3><ul>
-<li><p>CIDR最主要的特点有两个：</p>
-<ol>
-<li><p>CIDR消除了传统的A类、B类和C类地址以及划分子网的概念。CIDR把32位的IP地址划分为两个部分。前面的部分是“网路前缀(或简称为“前缀”)”，用来指明网络，后面的部分则用来指明主机。因此CIDR使IP地址从三级编制(使用子网掩码)又回到了两级编址，但这已是无分类的两级编址。</p>
-<pre><code> 它的记法是：
-     IP地址 ::={&lt;网络前缀&gt;,&lt;主机号&gt;}</code></pre><p>CIDR还是用“斜线记法”，或称为CIDR记法，即在IP地址后面加上斜线“/”,然后写上网络前缀所占的位数。</p>
-</li>
-<li><p>CIDR把网络前缀都相同的连续IP地址组成一个“CIDR地址块”。</p>
-</li>
-<li><p>斜线记法中，斜线后面的数字就是地址掩码中1的个数。</p>
-</li>
-</ol>
-</li>
-<li><p>路由聚合（也称为构成超网）：它使得路由表中的一个项目可以表示原来传统分类地址的很多个(例如上千个)路由。</p>
-</li>
-<li><p>路由聚合有利于减少路由器之间的路由选择信息的交换，从而提高了整个因特网的性能。</p>
-</li>
-</ul>
-
-</div>
-
-
-    <div class="post-guide">
-        <div class="item left">
-            
-              <a href="/2020/05/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/4_%E7%BD%91%E7%BB%9C%E5%B1%82/4.4%E7%BD%91%E9%99%85%E6%8E%A7%E5%88%B6%E6%8A%A5%E6%96%87%E5%8D%8F%E8%AE%AEICMP/">
-                  <i class="fa fa-angle-left" aria-hidden="true"></i>
-                  4.4网际控制报文协议ICMP
-              </a>
-            
-        </div>
-        <div class="item right">
-            
-              <a href="/2020/05/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/4_%E7%BD%91%E7%BB%9C%E5%B1%82/4.2%E7%BD%91%E9%99%85%E5%8D%8F%E8%AE%AEIP/">
-                4.2网际协议IP
-                <i class="fa fa-angle-right" aria-hidden="true"></i>
-              </a>
-            
-        </div>
-    </div>
-
-
-
-	<div id="vcomments"></div>
-
-
-<script>
-	
-		// 评论
-		new Valine({
-			av: AV,
-			el: '#vcomments',
-			notify: false,
-			verify: false,
-			path: window.location.pathname,
-			appId: '',
-			appKey: '',
-			placeholder: '请输入评论',
-			avatar: 'retro',
-			recordIP: false
-		})
-	
-	
-</script>
 	</div>
 	<div id="footer">
 	<p>
